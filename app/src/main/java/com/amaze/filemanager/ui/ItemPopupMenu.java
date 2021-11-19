@@ -158,6 +158,13 @@ public class ItemPopupMenu extends PopupMenu implements PopupMenu.OnMenuItemClic
         GeneralDialogCreation.deleteFilesDialog(
             context, mainActivity, positions, utilitiesProvider.getAppTheme());
         return true;
+      // my code
+      case R.id.compress:
+        final ArrayList<HybridFileParcelable> itemToCompress = new ArrayList<>();
+        itemToCompress.add(rowItem.generateBaseFile());
+        GeneralDialogCreation.showCompressDialog(mainActivity, itemToCompress, mainFragment.getCurrentPath());
+        return true;
+      //my code end
       case R.id.open_with:
         boolean useNewStack =
             sharedPrefs.getBoolean(PreferencesConstants.PREFERENCE_TEXTEDITOR_NEWSTACK, false);
