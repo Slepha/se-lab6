@@ -487,6 +487,17 @@ public class MainActivityHelper {
       mainActivity.operation = COMPRESS;
       mainActivity.oparrayList = baseFiles;
     } else if (mode == 1) {
+    //my code
+      //HybridFile f = new HybridFile(OpenMode.FILE, file.getPath());
+      if(file.exists()) {
+          Toast.makeText(
+                  mainActivity,
+                  mainActivity.getString(R.string.fileexist),
+                  Toast.LENGTH_SHORT)
+                  .show();
+          return;
+      }
+    //my code end
       Intent intent2 = new Intent(mainActivity, ZipService.class);
       intent2.putExtra(ZipService.KEY_COMPRESS_PATH, file.getPath());
       intent2.putExtra(ZipService.KEY_COMPRESS_FILES, baseFiles);
