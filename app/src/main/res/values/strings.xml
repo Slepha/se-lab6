@@ -42,6 +42,7 @@
     <string name="enterpath">Enter Path</string>
     <string name="cancel">CANCEL</string>
     <string name="create">CREATE</string>
+    <string name="retry">RETRY</string>
     <string name="loading">Loading&#8230;</string>
     <string name="file_empty">File is empty</string>
     <string name="error">Error</string>
@@ -441,6 +442,7 @@
     <string name="error_file_not_found">Error: File Not Found</string>
     <string name="error_io">I/O Error</string>
     <string name="error_file_too_large">Error: File Too Large</string>
+    <string name="error_file_exist">Error: File Already Exsits</string>
     <string name="medium_text">Medium Text</string>
     <string name="permission_read">Read</string>
     <string name="permission_write">Write</string>

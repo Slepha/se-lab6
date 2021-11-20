@@ -487,6 +487,34 @@ public class MainActivityHelper {
       mainActivity.operation = COMPRESS;
       mainActivity.oparrayList = baseFiles;
     } else if (mode == 1) {
+    //my code
+      //HybridFile f = new HybridFile(OpenMode.FILE, file.getPath());
+      if(file.exists()) {
+          Toast.makeText(
+                  mainActivity,
+                  mainActivity.getString(R.string.fileexist),
+                  Toast.LENGTH_SHORT)
+                  .show();
+          MaterialDialog.Builder a = new MaterialDialog.Builder(mainActivity);
+          View dialogView =
+                  mainActivity.getLayoutInflater().inflate(R.layout.dialog_duplicated_name, null);
+          a.customView(dialogView, false)
+                  .widgetColor(accentColor)
+                  .theme(mainActivity.getAppTheme().getMaterialDialogTheme())
+                  .title(mainActivity.getResources().getString(R.string.error_file_exist))
+                  .positiveText(R.string.retry)
+                  .positiveColor(accentColor)
+                  .onPositive((materialDialog, dialogAction) -> {
+                      GeneralDialogCreation.showCompressDialog(mainActivity,
+                          baseFiles,
+                          mainActivity.getCurrentMainFragment().getCurrentPath());})
+                  .negativeText(mainActivity.getResources().getString(R.string.cancel))
+                  .negativeColor(accentColor);
+          final MaterialDialog materialDialog = a.build();
+          materialDialog.show();
+          return;
+      }
+    //my code end
       Intent intent2 = new Intent(mainActivity, ZipService.class);
       intent2.putExtra(ZipService.KEY_COMPRESS_PATH, file.getPath());
       intent2.putExtra(ZipService.KEY_COMPRESS_FILES, baseFiles);
