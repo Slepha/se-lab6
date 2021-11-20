@@ -504,6 +504,10 @@ public class MainActivityHelper {
                   .title(mainActivity.getResources().getString(R.string.error_file_exist))
                   .positiveText(R.string.retry)
                   .positiveColor(accentColor)
+                  .onPositive((materialDialog, dialogAction) -> {
+                      GeneralDialogCreation.showCompressDialog(mainActivity,
+                          baseFiles,
+                          mainActivity.getCurrentMainFragment().getCurrentPath());})
                   .negativeText(mainActivity.getResources().getString(R.string.cancel))
                   .negativeColor(accentColor);
           final MaterialDialog materialDialog = a.build();
