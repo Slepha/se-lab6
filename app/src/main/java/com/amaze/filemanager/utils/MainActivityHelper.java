@@ -495,6 +495,19 @@ public class MainActivityHelper {
                   mainActivity.getString(R.string.fileexist),
                   Toast.LENGTH_SHORT)
                   .show();
+          MaterialDialog.Builder a = new MaterialDialog.Builder(mainActivity);
+          View dialogView =
+                  mainActivity.getLayoutInflater().inflate(R.layout.dialog_duplicated_name, null);
+          a.customView(dialogView, false)
+                  .widgetColor(accentColor)
+                  .theme(mainActivity.getAppTheme().getMaterialDialogTheme())
+                  .title(mainActivity.getResources().getString(R.string.error_file_exist))
+                  .positiveText(R.string.retry)
+                  .positiveColor(accentColor)
+                  .negativeText(mainActivity.getResources().getString(R.string.cancel))
+                  .negativeColor(accentColor);
+          final MaterialDialog materialDialog = a.build();
+          materialDialog.show();
           return;
       }
     //my code end
